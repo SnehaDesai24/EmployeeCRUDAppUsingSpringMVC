@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springlearning.employeebean.EmployeeBean;
@@ -20,7 +19,7 @@ public class EmployeeController{
 	@Autowired  
     EmployeeDao dao;
 	
-	@RequestMapping("/employeeDetails")
+	@RequestMapping("/")
 	public ModelAndView showEmpDetails() {
 		List<EmployeeBean> list = dao.getAllEmployees();
 		ModelAndView model = new ModelAndView("employeeDetails");
@@ -40,16 +39,14 @@ public class EmployeeController{
 	@RequestMapping(value="/editEmployee/editsave", method=RequestMethod.POST)
 	public ModelAndView saveEditEmployee(@ModelAttribute("bean") EmployeeBean bean) {
 		dao.updateEmployee(bean);
-		ModelAndView model = new ModelAndView("redirect:/employeeDetails");
-		//model.addObject("employeedetails", "Add Employee Details");
-		
+		ModelAndView model = new ModelAndView("redirect:/");
 		return model;
 	}
 	
 	@RequestMapping(value="/saveEmployee",method=RequestMethod.POST)
 	public ModelAndView saveEmployee(@ModelAttribute("emp") EmployeeBean bean) {
 		dao.saveEmployee(bean);
-		return new ModelAndView("redirect:/employeeDetails");
+		return new ModelAndView("redirect:/");
 	}
 	
 	@RequestMapping(value="/editEmployee/{id}")
@@ -64,6 +61,6 @@ public class EmployeeController{
 	@RequestMapping(value="/deleteEmployee/{id}")
 	public ModelAndView deleteEmployee(@PathVariable("id") int id) {
 		dao.deleteEmployee(id);
-		return new ModelAndView("redirect:/employeeDetails");
+		return new ModelAndView("redirect:/");
 	}
 }
