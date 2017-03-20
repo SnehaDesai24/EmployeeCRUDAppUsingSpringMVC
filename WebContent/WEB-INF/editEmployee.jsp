@@ -1,27 +1,52 @@
 <html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <script src="ui-bootstrap-tpls-2.4.0.min.js"></script> -->
+</head>
 <body>
-<h3>${employeedetails}</h3>
-<form action="editsave" method="post">
-<table>
-<tr>
-<td> Employee Name: </td><td><input type="text" name="empName" value="${bean.empName}"/></td>
-</tr>
-<tr>
-<td> Employee Telephone: </td><td><input type="text" name="empTel" value="${bean.empTel}"/></td>
-</tr>
-<tr>
-<td> Employee Email: </td><td><input type="text" name="empEmail" value="${bean.empEmail}"/></td>
-</tr>
-<tr>
-<td> Employee Address: </td><td><input type="text" name="empAdd" value="${bean.empAdd}"/></td>
-</tr>
-<tr>
-<td></td><td><button>Save</button></td>
-</tr>
-<tr>
-<td></td><td><input name="empId" value="${bean.empId}" hidden=true /></td>
-</tr>
-</table>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-2">
+</div>
+<div class="col-md-10">
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-3"><h3>${employeedetails}</h3></div>
+</div>
+<form action="editsave" method="post" class="form-horizontal">
+<div class="form-group">
+<label class="control-label col-md-2" for="empName">Employee Name:</label>
+<div class="col-md-4">
+<input type="text" name="empName" class="form-control col-md-8" value="${bean.empName}"/>
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-md-2" for="empTel">Employee Telephone:</label>
+<div class="col-md-4">
+<input type="text" name="empTel" class="form-control col-md-8" value="${bean.empTel}" />
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-md-2" for="empEmail">Employee Email:</label>
+<div class="col-md-4">
+<input type="text" name="empEmail" class="form-control col-md-8" value="${bean.empEmail}" />
+</div>
+</div>
+<div class="form-group">
+<label class="control-label col-md-2" for="empAdd">Employee Address:</label>
+<div class="col-md-4">
+<input type="text" name="empAdd" class="form-control col-md-8" value="${bean.empAdd}"/>
+</div>
+</div>
+<input name="empId" value="${bean.empId}" hidden=true />
+<div class="form-group">        
+<div class="col-sm-offset-2 col-sm-4">
+<input type="submit" class="btn btn-primary" name="empsubmit" />
+</div>
+</div>
 </form>
+</div>
+</div>
+</div>
 </body>
 </html>
